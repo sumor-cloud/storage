@@ -35,3 +35,64 @@ please change the following code in your `package.json` file:
 ```
 
 ## Usage
+
+### Import
+
+```js
+import { Storage } from '@sumor/storage'
+
+const storage = new Storage(config)
+```
+
+### Config format
+
+example for aliyun OSS
+
+```json
+{
+  "type": "aliyunOSS",
+  "accessKeyId": "xxxx",
+  "accessKeySecret": "xxx",
+  "region": "oss-us-west-1",
+  "bucket": "sumor-cloud"
+}
+```
+
+### Put
+
+put content support text, buffer, stream
+
+```js
+import { Storage } from '@sumor/storage'
+
+const storage = new Storage(config)
+
+const filename = 'demo.txt'
+const content = 'Hello World'
+
+const result = await storage.put(filename, content)
+```
+
+### Get
+
+```js
+import { Storage } from '@sumor/storage'
+
+const storage = new Storage(config)
+
+const filename = 'demo.txt'
+
+const result = await storage.get(filename)
+```
+
+### Delete
+
+```js
+import { Storage } from '@sumor/storage'
+
+const storage = new Storage(config)
+
+const filename = 'demo.txt'
+
+const result = await storage.delete(filename)
+```
